@@ -19,6 +19,8 @@ const getIPAdress = () => {
 module.exports = defineConfig({
     transpileDependencies: true,
 
+    productionSourceMap: false,
+
     publicPath: '/',
 
     outputDir: 'dist',
