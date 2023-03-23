@@ -1,0 +1,71 @@
+@mixin zhengzhouCustom($image) {
+    background-image: url("~@/assets/image/tree/zhengzhou/" + $image + ".svg");
+    background-repeat: no-repeat;
+    display: inline-block;
+    image-rendering: -webkit-optimize-contrast;
+    height: 28px;
+    width: 28px;
+    background-size: 30px;
+}
+
+@mixin zhengzhouCustom2($image) {
+    background-image: url("~@/assets/image/tree/zhengzhou/" + $image + ".svg");
+    background-repeat: no-repeat;
+    display: inline-block;
+    image-rendering: -webkit-optimize-contrast;
+    height: 40px;
+    width: 40px;
+}
+
+
+.tree-icon {
+    &.company {
+        @include zhengzhouCustom2('company');
+        height: 32px;
+        width: 32px;
+        background-size: 26px;
+    }
+
+    // 围栏形状
+    &.Polygon {
+        @include zhengzhouCustom2('map_region_polygon');
+        height: 32px;
+        width: 32px;
+        background-size: 30px 30px;
+    }
+    &.Rectangle {
+        @include zhengzhouCustom2('map_region_square');
+        background-size: 36px;
+    }
+
+    &.Circle {
+        @include zhengzhouCustom2('map_region_round');
+        background-size: 38px;
+    }
+    &.Polyline {
+        @include zhengzhouCustom2('map_region_line&trajectory');
+        background-size: 34px;
+    }
+
+
+
+    &.logistics_tree {
+        @include zhengzhouCustom('logistics_tree');
+    }
+    &.distribution_tree {
+        @include zhengzhouCustom('distribution_tree');
+    }
+    &.net_tree {
+        @include zhengzhouCustom('net_tree');
+    }
+    &.change_tree {
+        @include zhengzhouCustom('change_tree');
+    }
+    &.parking_tree {
+        @include zhengzhouCustom('parking_tree');
+    }
+    &.fence_tree {
+        @include zhengzhouCustom('fence_tree');
+        background-size: 28px;
+    }
+}  

@@ -1,0 +1,138 @@
+// 图切的有点乱。，。
+@mixin KindImage($image) {
+    background-image: url("~@/assets/image/tree/zhengzhou/" + $image + ".svg");
+    background-size: 28px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    image-rendering: -webkit-optimize-contrast;
+    height: 28px;
+    width: 28px;
+}
+
+.tree-container {
+    .elementTree-tree-row {
+        
+        .elementTree-tree-node {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            .element-tree-node__label {
+                flex-grow: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .element-tree-node_icon {
+            position: relative;
+            width: 45px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tree-icon {
+            &.tag {
+                @include KindImage('folder_closed');
+            }
+        }  
+
+        &.expanded {
+            .tree-icon {
+                &.tag {
+                    @include KindImage('folder_open');
+                }
+            }
+        }
+    }
+}
+
+
+.el-tree {
+    height: 100%;
+
+
+    &.customtree {
+
+
+        // 单选模式
+        &--radio {
+
+            .el-checkbox__input {
+                .el-checkbox__inner {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    transition: none;
+                }
+        
+                &.is-checked {
+                    .el-checkbox__inner {
+                        &::after {
+                            top: 2px;
+                            left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 线条引导
+        &--line {
+            .el-tree-node {
+                position: relative;
+            }
+            .el-tree-node__children {
+                padding-left: 26px; // 缩进量
+            }
+    
+            // 竖线
+            .el-tree-node::before {
+                content: "";
+                height: 100%;
+                width: 1px;
+                position: absolute;
+                left: -14px;
+                top: -26px;
+                border-width: 1px;
+                border-left: 1px dashed #DCDFE6;
+            }
+            // 当前层最后一个节点的竖线高度固定
+            .el-tree-node:last-child::before {
+                height: 38px; // 可以自己调节到合适数值
+            }
+    
+            // 横线
+            .el-tree-node::after {
+                content: "";
+                width: 30px;
+                height: 20px;
+                position: absolute;
+                left: -14px;
+                top: 22px;
+                border-width: 1px;
+                border-top: 1px dashed #DCDFE6;
+            }
+    
+            // 去掉最顶层的虚线，放最下面样式才不会被上面的覆盖了
+            & > .el-tree-node::after {
+                border-top: none;
+            }
+            & > .el-tree-node::before {
+                border-left: none;
+            }
+    
+            // 展开关闭的icon
+            .el-tree-node__expand-icon{
+                &.is-leaf{
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+}
+
+

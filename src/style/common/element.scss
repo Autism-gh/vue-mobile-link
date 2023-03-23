@@ -1,0 +1,42 @@
+.el-tree-node__content {
+    height: 50px;
+}
+
+.el-tree-node__expand-icon {
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+.el-checkbox__inner {
+    width: 26px;
+    height: 26px;
+
+    &::after {
+        height: 15px;
+        width: 6px;
+        left: 8px;
+        top: 0;
+    }
+}
+
+.el-checkbox__input {
+    &.is-indeterminate {
+        .el-checkbox__inner {
+            &::before {
+                top: 10px;
+                height: 4px;
+            }
+        }
+    }
+}
+
+.el-input__inner {
+    height: 60px;
+    font-size: 24px;
+}
+
+.el-select-dropdown__item {
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+}
